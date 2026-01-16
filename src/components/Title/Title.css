@@ -1,0 +1,20 @@
+.title-container {
+  margin: 20px 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #6b4423;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(139, 115, 85, 0.3);
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #8b7355;
+  font-weight: 400;
+  font-family: 'Georgia', serif;
+}
