@@ -1,20 +1,19 @@
 .card-img {
-  
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0,3 ease box-shadow 0,3 ease;
+  transition:
+    transform 0,
+    3 ease box-shadow 0,
+    3 ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-
-
-.card{
+.card {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   max-width: 900px;
   margin: 0 auto;
@@ -27,13 +26,13 @@
 }
 
 .card-img:active {
-  transform: scale(0,95);
+  /* transform: scale(0,95); */
 }
 
 /* Resposive tu coco */
 @media (max-width: 768px) {
   .card {
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 100px;
   }
@@ -45,7 +44,7 @@
 
 @media (max-width: 480px) {
   .card {
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
 

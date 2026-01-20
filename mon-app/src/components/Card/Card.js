@@ -14,37 +14,38 @@ function Card(props) {
         '/assets/img/7.jpeg',
         '/assets/img/8.webp',
         '/assets/img/9.jpg',
-
     ];
 
     const dos = '/assets/img/dos.jpg';
-
 
     // Fonction pour mélanger un tableau
     const shuffleArray = (array) => {
         const shuffled = [...array];
         for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            // Math regroupe toutes les fonctions de maths -- floor lui, arondi au plus grand entier.
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
         return shuffled;
     };
 
-    // Créer les paires et mélanger
+    // États
     const [shuffledImages, setShuffledImages] = useState([]);
     const [flippedCards, setFlippedCards] = useState([]);
     const [matchedCards, setMatchedCards] = useState([]);
     const [isChecking, setIsChecking] = useState(false);
 
+    // Initialisation du jeu
     useEffect(() => {
         const pairs = images.flatMap(img => [img, img]);
-        // Map parcourt un tableau et ça récréer un nouveau tableau.
         setShuffledImages(shuffleArray(pairs));
     }, []);
 
+    // Vérification des paires
     useEffect(() => {
+        console.log(flippedCards);
         if (flippedCards.length === 2) {
+
+            // lenght = compter les chaines de caractères.
             setIsChecking(true);
             const [firstIndex, secondIndex] = flippedCards;
 
@@ -54,43 +55,45 @@ function Card(props) {
                 setFlippedCards([]);
                 setIsChecking(false);
             } else {
-                // les cartes ne correspondent pas
+                // Les cartes ne correspondent pas
                 setTimeout(() => {
                     setFlippedCards([]);
                     setIsChecking(false);
                 }, 1000);
             }
         }
-    }, [flippedCards]);
+        console.log(flippedCards);
+    }, [flippedCards, shuffledImages, matchedCards]);
 
-
+    // Gestion du clic sur une carte
     const handleCardClick = (index) => {
+        console.log("handleCardClick:", index);
         if (
-            isChecking === false &&
+            !isChecking &&
             flippedCards.length < 2 &&
             !flippedCards.includes(index) &&
             !matchedCards.includes(index)
         ) {
-            setFlippedCards([...flippedCards, index]);
+             setFlippedCards([...flippedCards, index]);
         }
-    };
 
+    };
 
     return (
         <div className='card'>
             {
-                shuffledImages.map((name, index) =>
+                shuffledImages.map((name, index) => (
                     <img
                         key={index}
                         className="card-img"
                         src={flippedCards.includes(index) || matchedCards.includes(index) ? name : dos}
                         alt=""
-                        onClick={() => handleCardClick(index)} />
-                )
-            };
+                        onClick={() => handleCardClick(index)}
+                    />
+                ))
+            }
         </div>
-    )
+    );
 }
 
 export default Card;
-
