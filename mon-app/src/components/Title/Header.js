@@ -4,8 +4,8 @@ function Header() {
 
     return (
         <div className="header">
-            <h1> La bonne paire</h1>
-            <p> Trouve les animaux rigolo</p>
+            <h1> LA BONNE PAIRE</h1>
+            <p> Trouve les animaux rigolos </p>
         </div>
         
     )

@@ -1,10 +1,15 @@
-import React from 'react';
+import './button.css';
 
 function Button(props) {
     return (
-        <button>{props.text}</button>
+        <div>
+            <button onClick={props.onClick}>{props.text} </button>
+        </div>
     )
 }
+
+
+
 
 export default Button;
 

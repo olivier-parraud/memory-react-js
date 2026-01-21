@@ -1,13 +1,12 @@
 .card-img {
   width: 150px;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
   transition:
-    transform 0,
-    3 ease box-shadow 0,
-    3 ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -16,6 +15,7 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   max-width: 900px;
+  max-height: 900px;
   margin: 0 auto;
   padding: 20px;
   justify-items: center;
@@ -24,12 +24,9 @@
 
 .card-img:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.card-img:active {
-  /* transform: scale(0,95); */
-}
 
 /* Resposive tu coco */
 @media (max-width: 768px) {
@@ -40,7 +37,8 @@
   }
 
   .card-img {
-    height: 100px;
+    width: 100px;
+    height: 140px;
   }
 }
 
@@ -51,6 +49,7 @@
   }
 
   .card-img {
-    height: 80px;
+    width: 80px;
+    height: 110px;
   }
 }
