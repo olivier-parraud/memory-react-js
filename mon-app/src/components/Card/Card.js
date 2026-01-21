@@ -42,7 +42,6 @@ function Card(props) {
 
     // Vérification des paires
     useEffect(() => {
-        console.log(flippedCards);
         if (flippedCards.length === 2) {
 
             // lenght = compter les chaines de caractères.
@@ -74,7 +73,7 @@ function Card(props) {
             !flippedCards.includes(index) &&
             !matchedCards.includes(index)
         ) {
-             setFlippedCards([...flippedCards, index]);
+            setFlippedCards([...flippedCards, index]);
         }
 
     };
